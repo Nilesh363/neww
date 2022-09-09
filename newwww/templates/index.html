@@ -1,0 +1,20 @@
+{% from 'form_helper.html' import dispalyField %}
+
+{% extends "prelogin-layout.html" %}
+
+{% block title %}Registration{% endblock %}
+
+{% block content %}
+<h1>Get started</h1>
+<form action="{{url_for('index')}}", method="POST">
+    {{ dispalyField(form.username,'Username',autocomplete="off",autofocus=true)}}
+    {{ dispalyField(form.password,'Password')}}
+    {{ dispalyField(form.confirm_pswd,'Confirm Password')}}
+    
+    <div>
+        {{ form.submit_button }}
+    </div>
+
+    {{ form.csrf_token }}
+</form>
+{% endblock %}
